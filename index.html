@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytes Game Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom hover effect for nav links */
+        .nav-link:hover {
+            color: #72c247;
+            transition: color 0.3s ease;
+        }
+        /* Custom theme color */
+        .bg-theme {
+            background-color: #72c247;
+        }
+        .text-theme {
+            color: #72c247;
+        }
+        .hover\:bg-theme:hover {
+            background-color: #5ea036;
+        }
+        /* Custom game image frame */
+        .game-image {
+            border-radius: 1rem 1rem 0 0; /* Rounded top corners, sharp bottom corners */
+            border: none; /* No border */
+            width: 100%;
+            height: 180px; /* Height until title */
+            object-fit: cover;
+            margin: -1.5rem -1.5rem 1rem -1.5rem; /* Negative margin to span border-to-border, with bottom margin for spacing */
+        }
+        /* Adjust card to account for negative margins */
+        .game-card {
+            overflow: hidden; /* Prevent image overflow */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <!-- Header -->
+    <header class="bg-theme sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/40?text=Logo" alt="Bytes Game Logo" class="h-10 w-10">
+                <a href="#" class="text-2xl font-bold">Bytes Game Studio</a>
+            </div>
+            <div class="space-x-6 hidden md:flex">
+                <a href="#games" class="nav-link">Our Games</a>
+                <a href="#about" class="nav-link">About Us</a>
+                <a href="#staff" class="nav-link">Staff</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-theme">
+            <a href="#games" class="block px-6 py-2 nav-link">Our Games</a>
+            <a href="#about" class="block px-6 py-2 nav-link">About Us</a>
+            <a href="#staff" class="block px-6 py-2 nav-link">Staff</a>
+            <a href="#contact" class="block px-6 py-2 nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-cover bg-center py-20 text-center" style="background-image: url('https://via.placeholder.com/1920x600?text=Hero+Image')">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Bytes Game Studio</h1>
+            <p class="text-lg md:text-xl mb-6">Creating immersive Roblox experiences that spark creativity and fun!</p>
+            <a href="#games" class="bg-white text-theme px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Explore Our Games</a>
+        </div>
+    </section>
+
+    <!-- Our Games Section -->
+    <section id="games" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Games</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 game-card">
+                    <img src="https://raw.githubusercontent.com/TonyWong0086/BytesGames/main/assets/templateimage.png" alt="Game 1" class="game-image">
+                    <h3 class="text-xl font-semibold">Adventure Quest</h3>
+                    <p class="text-gray-400 mb-4">Embark on an epic journey through a vibrant Roblox world filled with challenges and treasures.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="https://www.roblox.com/games/123456789/Adventure-Quest" target="_blank" class="bg-theme text-white px-4 py-2 rounded-lg hover:bg-theme transition">Play Now</a>
+                        <div class="text-right">
+                            <p class="text-gray-400 text-sm"><span class="text-theme">Visits:</span> 1.2M</p>
+                            <p class="text-gray-400 text-sm"><span class="text-theme">Favorites:</span> 150K</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 game-card">
+                    <img src="https://raw.githubusercontent.com/TonyWong0086/BytesGames/main/assets/templateimage.png" alt="Game 2" class="game-image">
+                    <h3 class="text-xl font-semibold">Space Odyssey</h3>
+                    <p class="text-gray-400 mb-4">Explore the cosmos in this thrilling space adventure with stunning visuals and gameplay.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="https://www.roblox.com/games/987654321/Space-Odyssey" target="_blank" class="bg-theme text-white px-4 py-2 rounded-lg hover:bg-theme transition">Play Now</a>
+                        <div class="text-right">
+                            <p class="text-gray-400 text-sm"><span class="text-theme">Visits:</span> 850K</p>
+                            <p class="text-gray-400 text-sm"><span class="text-theme">Favorites:</span> 90K</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-lg p-6 game-card">
+                    <img src="https://raw.githubusercontent.com/TonyWong0086/BytesGames/main/assets/templateimage.png" alt="Game 3" class="game-image">
+                    <h3 class="text-xl font-semibold">Mystery Manor</h3>
+                    <p class="text-gray-400 mb-4">Solve puzzles and uncover secrets in a haunted manor full of surprises.</p>
+                    <div class="flex justify-between items-center">
+                        <a href="https://www.roblox.com/games/456789123/Mystery-Manor" target="_blank" class="bg-theme text-white px-4 py-2 rounded-lg hover:bg-theme transition">Play Now</a>
+                        <div class="text-right">
+                            <p class="text-gray-400 text-sm"><span class="text-theme">Visits:</span> 500K</p>
+                            <p class="text-gray-400 text-sm"><span class="text-theme">Favorites:</span> 75K</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="bg-gray-800 py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">About Us</h2>
+            <p class="text-lg text-gray-300 max-w-3xl mx-auto text-center">
+                Bytes Game Studio is a passionate team of developers creating innovative and engaging games on the Roblox platform. Our mission is to bring joy and excitement to players worldwide through unique storytelling and immersive gameplay.
+            </p>
+        </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section id="staff" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/150?text=Staff+1" alt="Staff 1" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold">John Doe</h3>
+                    <p class="text-gray-400">Lead Developer</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/150?text=Staff+2" alt="Staff 2" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold">Jane Smith</h3>
+                    <p class="text-gray-400">Game Designer</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://via.placeholder.com/150?text=Staff+3" alt="Staff 3" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold">Alex Brown</h3>
+                    <p class="text-gray-400">Community Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-800 py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            <div class="max-w-lg mx-auto text-center">
+                <p class="text-lg text-gray-300 mb-6">Join our community or reach out directly!</p>
+                <div class="flex justify-center space-x-4 mb-6">
+                    <a href="https://www.roblox.com/groups/123456/Bytes-Game-Studio" target="_blank" class="bg-theme text-white px-6 py-3 rounded-lg font-semibold hover:bg-theme transition">Join Roblox Group</a>
+                    <a href="https://discord.com/invite/bytesgamestudio" target="_blank" class="bg-theme text-white px-6 py-3 rounded-lg font-semibold hover:bg-theme transition">Join Discord</a>
+                </div>
+                <p class="text-lg text-gray-300">Email us at: <a href="mailto:contact@bytesgamestudio.com" class="text-theme hover:underline">contact@bytesgamestudio.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-theme py-6 text-center">
+        <p>© 2025 Bytes Game Studio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
