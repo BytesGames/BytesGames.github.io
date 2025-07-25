@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bytes Game</title>
+  <title>Bytes Games</title>
+  <link rel="icon" type="image/png" href="https://github.com/BytesGames/BytesGames.github.io/blob/main/favicon.png?raw=true" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html {
       scroll-behavior: smooth;
     }
     .nav-link:hover {
-      color: #ffffff;
+      color: #235BFF;
       transition: color 0.3s ease;
     }
     .bg-theme {
@@ -36,16 +37,17 @@
       margin-bottom: 0.5rem;
     }
     .game-card {
-      overflow: hidden;
+        background-color: #1A1A1A;
+        color: white;
+        overflow: hidden;
     }
-
-    /* Glow animation for Bytes Game Studio */
+    /* Glow animation for Bytes Games */
     @keyframes glow {
       0% {
-        text-shadow: 0 0 2px #235BFF, 0 0 5px #235BFF;
+        text-shadow: 0 0 2px #235BFF, 0 0 5px #1E4BDB;
       }
       100% {
-        text-shadow: 0 0 4px #235BFF, 0 0 8px #235BFF;
+        text-shadow: 0 0 4px #235BFF, 0 0 8px #1E4BDB;
       }
     }
     .animate-glow {
@@ -53,42 +55,42 @@
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-[#0B0B0B] text-white font-sans">
   <!-- Header -->
-  <header class="bg-theme sticky top-0 z-50 shadow-lg">
+  <header class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/40 border-b border-white/10">
     <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center space-x-4">
-        <img src="https://via.placeholder.com/40?text=Logo" alt="Bytes Game Logo" class="h-10 w-10 rounded-md" />
-        <a href="#" class="text-2xl font-bold">Bytes Game</a>
+        <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/BytesGames.png?raw=true" alt="Bytes Game Logo" class="h-10 w-10 rounded-md" />
+        <a href="#" class="text-2xl font-bold">Bytes Games</a>
       </div>
       <div class="space-x-6 hidden md:flex">
-        <a href="#games" class="nav-link">Our Games</a>
-        <a href="#about" class="nav-link">About Us</a>
-        <a href="#staff" class="nav-link">Staff</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#games" class="nav-link text-white hover:text-[#235BFF] transition">Our Games</a>
+        <a href="#about" class="nav-link text-white hover:text-[#235BFF] transition">About Us</a>
+        <a href="#staff" class="nav-link text-white hover:text-[#235BFF] transition">Staff</a>
+        <a href="#contact" class="nav-link text-white hover:text-[#235BFF] transition">Contact</a>
       </div>
       <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
       </button>
     </nav>
-    <div id="mobile-menu" class="hidden md:hidden bg-theme">
-      <a href="#games" class="block px-6 py-2 nav-link">Our Games</a>
-      <a href="#about" class="block px-6 py-2 nav-link">About Us</a>
-      <a href="#staff" class="block px-6 py-2 nav-link">Staff</a>
-      <a href="#contact" class="block px-6 py-2 nav-link">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0B1440]/80 backdrop-blur-md">
+        <a href="#games" class="block px-6 py-2 text-white hover:text-[#235BFF]">Our Games</a>
+        <a href="#about" class="block px-6 py-2 text-white hover:text-[#235BFF]">About Us</a>
+        <a href="#staff" class="block px-6 py-2 text-white hover:text-[#235BFF]">Staff</a>
+        <a href="#contact" class="block px-6 py-2 text-white hover:text-[#235BFF]">Contact</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-cover bg-center py-20 text-center min-h-[400px]"
-    style="background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1950&q=80');">
-    <div class="container mx-auto px-6">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-black">
-        Welcome to <span class="text-theme animate-glow">Bytes Game</span>
+  <section class="relative bg-cover bg-center min-h-[500px] flex items-center text-center"
+    style="background-image: url('https://github.com/BytesGames/BytesGames.github.io/blob/main/Untitled-1.png?raw=true');">
+    <div class="container mx-auto px-6 pt-32 relative z-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+        Welcome to <span class="text-theme animate-glow">Bytes Games</span>
       </h1>
-      <p class="text-lg md:text-xl mb-6 text-black" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);">
+      <p class="text-lg md:text-xl mb-6 text-white" style="text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);">
         Roblox game development studio. Clear. Optimized. Reliable.
       </p>
       <a href="#games" class="bg-white text-theme px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Explore Our Games</a>
@@ -96,21 +98,24 @@
   </section>
 
   <!-- Our Games Section -->
-  <section id="games" class="py-20 bg-gray-800">
+  <section id="games" class="py-20 bg-[#0B0B0B]">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-12">Our Games</h2>
       <div class="flex flex-wrap justify-center gap-8">
-        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden game-card w-full md:w-[300px]">
-          <img src="https://raw.githubusercontent.com/TonyWong0086/BytesGames/main/assets/templateimage.png" alt="Game 1" class="game-image" />
+        <div class="bg-[#1A1A1A] rounded-3xl shadow-lg overflow-hidden game-card w-full md:w-[300px] transform transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_#235BFF]">
+          <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/BannerV3.png?raw=true" alt="Game 1" class="game-image" />
           <div class="p-6">
-            <h3 class="text-xl font-semibold">Adventure Quest</h3>
+            <h3 class="text-xl font-semibold">Untitled Crime Game</h3>
             <p class="text-gray-400 mb-4">Embark on an epic journey through a vibrant Roblox world filled with challenges and treasures.</p>
             <div class="flex justify-between items-center mb-2">
               <a class="bg-gray-600 text-white px-4 py-2 rounded-lg opacity-50 cursor-not-allowed">Unavailable</a>
-              <div class="text-right">
+              <!--<a href="https://www.roblox.com/games/123456789/My-Game" target="_blank" class="bg-theme text-white px-4 py-2 rounded-lg hover:bg-theme transition">
+                Play Now
+             </a>-->
+              <!--<div class="text-right">
                 <p class="text-gray-400 text-sm"><span class="text-theme">Visits:</span> 1.2M</p>
                 <p class="text-gray-400 text-sm"><span class="text-theme">Favorites:</span> 150K</p>
-              </div>
+              </div>-->
             </div>
             <p class="text-red-400 text-xs mt-2">This game is currently still working in progress.</p>
           </div>
@@ -120,50 +125,44 @@
   </section>
 
   <!-- About Us Section -->
-  <section id="about" class="bg-gray-900 py-20">
+  <section id="about" class="bg-[#111111] py-20">
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold mb-12">About Us</h2>
       <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-        Bytes Game is a team of developers creating innovative games on Roblox. We focus on quality, reliability, and creative gameplay.
+        Established on 8th February 2025 by Tony Wong. Bytes Games creates and develops games on Roblox. We focus on quality as our goal is to make players enjoy our games.
       </p>
     </div>
   </section>
 
   <!-- Staff Section -->
-  <section id="staff" class="py-20">
+  <section id="staff" class="py-20 bg-[#0B0B0B]">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-12">Our Team</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex flex-wrap justify-center gap-8">
         <div class="text-center">
-          <img src="https://via.placeholder.com/150?text=Staff+1" class="w-32 h-32 rounded-full mx-auto mb-4" />
+          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-F59878D9C2694089C29277D52798E62C-Png/150/150/AvatarHeadshot/Webp/noFilter" class="w-32 h-32 rounded-full mx-auto mb-4">
           <h3 class="text-xl font-semibold">TonyWong_0086</h3>
-          <p class="text-gray-400">Founder & Owner</p>
-        </div>
-      </div>
+          <p class="text-gray-400 mb-4">Founder & Owner</p>
 
-      <!-- Social Buttons -->
-      <div class="mt-12 flex justify-center gap-6">
-        <a href="https://www.youtube.com/@tonywongz0086" target="_blank" title="YouTube">
-          <svg class="w-6 h-6 text-red-500 hover:scale-110 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
-            <path d="M549.7 124.1c-6.3-24-25.1-42.8-49.1-49.1C456.5 64 288 64 288 64s-168.5 0-212.6 10.9c-24 6.3-42.8 25.1-49.1 49.1C16 168.2 16 256 16 256s0 87.8 10.3 131.9c6.3 24 25.1 42.8 49.1 49.1C119.5 448 288 448 288 448s168.5 0 212.6-10.9c24-6.3 42.8-25.1 49.1-49.1 10.3-44.1 10.3-131.9 10.3-131.9s0-87.8-10.3-131.9zM232 334V178l142 78-142 78z"/>
-          </svg>
-        </a>
-        <a href="https://x.com/TonyWong0086" target="_blank" title="X">
-          <svg class="w-6 h-6 text-white hover:text-blue-400 hover:scale-110 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-            <path d="M461.2 0H357.3L258.3 159.3 159.2 0H50.8l132.2 194.8L40 512h104.2l99.3-146.8L342.9 512h108.2L313 306.1 461.2 0z"/>
-          </svg>
-        </a>
-        <a href="https://www.roblox.com/users/1864912079/profile" target="_blank" title="Roblox">
-          <svg class="w-6 h-6 text-white hover:text-green-400 hover:scale-110 transition" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor">
-            <path d="M512 0L0 128l128 384 384-128L512 0zM341.3 341.3l-170.6 48L122.7 170.7l170.6-48 48 170.6z"/>
-          </svg>
-        </a>
+          <!-- Social Buttons -->
+            <div class="mt-2 flex justify-center gap-6">
+                <a href="https://www.youtube.com/@tonywongz0086" target="_blank" title="YouTube">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="YouTube" class="w-6 h-6 hover:scale-110 transition">
+                </a>
+                <a href="https://x.com/TonyWong0086" target="_blank" title="X">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X" class="w-6 h-6 hover:scale-110 transition">
+                </a>
+                <a href="https://www.roblox.com/users/1864912079/profile" target="_blank" title="Roblox">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Roblox_Logo.svg/2048px-Roblox_Logo.svg.png" alt="Roblox" class="w-6 h-6 hover:scale-110 transition">
+                </a>
+            </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Hiring Section -->
-  <section id="hiring" class="bg-gray-900 py-20">
+  <section id="hiring" class="bg-[#111111] py-20">
     <div class="container mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold text-theme mb-6">We're Hiring Builders!</h2>
       <p class="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
@@ -178,15 +177,15 @@
           <li>Ability to meet deadlines</li>
         </ul>
       </div>
-      <a href="mailto:bytesgamesrblx@gmail.com?subject=Builder%20Application"
-         class="bg-theme text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition">
+      <a href="https://forms.gle/pmRTZPXnv2NL1xhk9" target="_blank"
+         class="bg-theme text-white px-6 py-3 rounded-lg font-semibold hover:bg-theme transition">
          Apply Now
       </a>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-gray-800 py-20">
+  <section id="contact" class="bg-[#0B0B0B] py-20">
     <div class="container mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
       <div class="max-w-lg mx-auto text-center">
@@ -202,14 +201,14 @@
           </a>
         </div>
         <p class="text-lg text-gray-300">Email us at:
-          <a href="mailto:contact@bytesgamestudio.com" class="text-theme hover:underline">bytesgamesrblx@gmail.com</a>
+          <a href="mailto:bytesgamesrblx@gmail.com" class="text-theme hover:underline">bytesgamesrblx@gmail.com</a>
         </p>
       </div>
     </div>
   </section>
 
   <footer class="bg-theme py-6 text-center">
-    <p>© 2025 Bytes Game. All rights reserved.</p>
+    <p>© 2025 Bytes Games. All rights reserved.</p>
   </footer>
 
   <script>
