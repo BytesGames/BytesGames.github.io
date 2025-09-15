@@ -2,90 +2,135 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Bytes Games</title>
+  <meta name="description" content="Bytes Games is a Roblox game studio founded by Tony Wong on Feb 8, 2025. Current project: Untitled Crime Game — rob stores or chill with friends, buy cars, guns, houses, join gangs, and discover secrets." />
+  <meta name="theme-color" content="#0b1023" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bytes Games — Roblox Game Studio">
+  <meta property="og:description" content="High-quality Roblox experiences. Current project: Untitled Crime Game.">
+  <meta property="og:image" content="BytesGames.png">
+  <meta property="og:type" content="website">
+
+  <!-- Icons / Fonts / Tailwind -->
   <link rel="icon" type="image/png" href="https://github.com/BytesGames/BytesGames.github.io/blob/main/favicon.png?raw=true" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <meta name="theme-color" content="#0b0b0b" />
+
   <style>
-    :root { --brand:#235BFF; --brand-2:#5c92f6; --text-main:#ffffff; --text-muted: rgba(255,255,255,.8); }
-    .text-main{ color: var(--text-main); }
-    .text-muted{ color: var(--text-muted); }
-    body{ color: var(--text-main); }
+    :root{
+      --bg:#0b1023;        /* Deep navy gaming backdrop */
+      --brand:#235BFF;     /* Primary Bytes blue */
+      --brand-2:#5C92F6;   /* Lighter accent */
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.8);
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.10);
+    }
+    html,body{ height:100%; }
+    body{ background:var(--bg); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
 
-    /* Aurora gradient backdrop */
-    .aurora { position: absolute; inset: -20% -20% auto -20%; height: 60vh; filter: blur(80px);
-      background: conic-gradient(from 180deg at 50% 50%, var(--brand), var(--brand-2), #00e6ff, var(--brand));
-      opacity:.25; pointer-events:none; animation: drift 14s linear infinite; }
-    @keyframes drift { 0%{transform:translateY(0)} 50%{transform:translateY(20px)} 100%{transform:translateY(0)} }
+    /* Aurora background */
+    .aurora{ position:fixed; inset:-20% -20% auto -20%; height:60vh; filter:blur(80px);
+      background:conic-gradient(from 180deg at 50% 50%, var(--brand), var(--brand-2), #00a2ff, var(--brand));
+      opacity:.22; pointer-events:none; animation:drift 16s linear infinite; }
+    @keyframes drift { 0%{transform:translateY(0)} 50%{transform:translateY(24px)} 100%{transform:translateY(0)} }
 
-    /* Glass card */
-    .glass { background: rgb(255 255 255 / 6%); backdrop-filter: blur(12px); border: 1px solid rgb(255 255 255 / 10%); }
+    /* Frosted card */
+    .glass{ background:var(--card); backdrop-filter: blur(12px); border:1px solid var(--stroke); }
 
-    /* Glow text */
-    @keyframes glow { 0% { text-shadow:0 0 2px var(--brand), 0 0 5px #1E4BDB } 100% { text-shadow:0 0 6px var(--brand), 0 0 12px #466ef1 } }
-    .animate-glow { animation: glow 2s ease-in-out infinite alternate; }
+    /* Consistent section offset for anchored links */
+    section[id]{ scroll-margin-top: 96px; }
 
-    /* Card image */
-    .game-image { border-radius: 1rem 1rem 0 0; width: 100%; height: 200px; object-fit: cover; }
+    /* Game banner */
+    .game-image{ width:100%; height:220px; object-fit:cover; border-radius:1rem 1rem 0 0; }
 
-    /* Mobile-menu show/hide (class toggled in js) */
-    .menu-open { opacity:1 !important; transform: translateY(0) !important; pointer-events:auto !important; }
+    /* Mobile menu helper */
+    .menu-open{ opacity:1!important; transform:translateY(0)!important; pointer-events:auto!important; }
 
-    /* Ensure all game cards have same height */
-    .game-card { display: flex; flex-direction: column; height: 100%; }
-    .game-card-content { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    /* Button base */
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.80rem 1.1rem; border-radius:1rem; font-weight:600; }
+    .btn-primary{ background:var(--brand); color:#fff; }
+    .btn-primary:hover{ filter:brightness(1.05); }
+    .btn-ghost{ background:var(--card); color:#fff; }
+    .btn-ghost:hover{ background:rgba(255,255,255,.10); }
+
+    /* Simple tag */
+    .tag{ font-size:.75rem; padding:.25rem .55rem; border-radius:.6rem; background:rgba(35,91,255,.12); border:1px solid rgba(35,91,255,.35); color:#bcd1ff; }
+
+    /* Reduce motion prefers */
+    @media (prefers-reduced-motion: reduce){
+      .aurora{animation:none}
+    }
   </style>
 </head>
-<body class="bg-[#0b0b0b] antialiased selection:bg-white/20">
+<body class="antialiased selection:bg-white/20">
   <div class="aurora"></div>
 
   <!-- Header -->
-  <header class="fixed top-0 left-0 w-full z-50">
-    <nav class="mx-auto max-w-6xl px-4 md:px-6 py-3 flex items-center justify-between glass rounded-b-2xl">
-      <a href="#home" class="flex items-center gap-3 text-main">
-        <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/BytesGames.png?raw=true" alt="Bytes Games Logo" class="h-9 w-9 rounded-md" />
-        <span class="text-xl font-bold tracking-tight">Bytes Games</span>
+  <header class="fixed top-0 left-0 right-0 z-50">
+    <nav class="mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 text-white/70 glass rounded-xl p-3">
+        <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/favicon.png?raw=true" alt="Bytes Games logo" class="h-9 w-9 rounded-md" loading="eager" />
+        <span class="text-xl font-extrabold tracking-tight">Bytes Games</span>
       </a>
-      <div class="hidden md:flex items-center gap-6 text-main">
+
+      <div class="hidden md:flex items-center gap-6">
         <a class="hover:text-[var(--brand)] transition" href="#home">Home</a>
-        <a class="hover:text-[var(--brand)] transition" href="#games">Our Games</a>
+        <a class="hover:text-[var(--brand)] transition" href="#games">Our Projects</a>
         <a class="hover:text-[var(--brand)] transition" href="#about">About</a>
-        <a class="hover:text-[var(--brand)] transition" href="#staff">Staff</a>
+        <a class="hover:text-[var(--brand)] transition" href="#team">Team</a>
         <a class="hover:text-[var(--brand)] transition" href="#contact">Contact</a>
       </div>
-      <button class="md:hidden glass hover:bg-white/10 rounded-xl p-2 text-main" onclick="toggleMenu()" aria-controls="mobile-menu" aria-expanded="false">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+
+      <button class="md:hidden glass rounded-xl p-2" onclick="toggleMenu()" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
       </button>
     </nav>
-    <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full glass opacity-0 -translate-y-2 pointer-events-none transition-all duration-300 text-main">
-      <div class="max-w-6xl mx-auto px-6 py-3 grid gap-2">
-        <a href="#home" class="py-2 hover:text-[var(--brand)]" onclick="toggleMenu()">Home</a>
-        <a href="#games" class="py-2 hover:text-[var(--brand)]" onclick="toggleMenu()">Our Games</a>
-        <a href="#about" class="py-2 hover:text-[var(--brand)]" onclick="toggleMenu()">About</a>
-        <a href="#staff" class="py-2 hover:text-[var(--brand)]" onclick="toggleMenu()">Staff</a>
-        <a href="#contact" class="py-2 hover:text-[var(--brand)]" onclick="toggleMenu()">Contact</a>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 glass opacity-0 -translate-y-2 pointer-events-none transition-all duration-300">
+      <div class="mx-auto max-w-7xl px-6 py-3 grid gap-2">
+        <a class="py-2 hover:text-[var(--brand)]" href="#home"   onclick="toggleMenu()">Home</a>
+        <a class="py-2 hover:text-[var(--brand)]" href="#games"  onclick="toggleMenu()">Our Projects</a>
+        <a class="py-2 hover:text-[var(--brand)]" href="#about"  onclick="toggleMenu()">About</a>
+        <a class="py-2 hover:text-[var(--brand)]" href="#team"   onclick="toggleMenu()">Team</a>
+        <a class="py-2 hover:text-[var(--brand)]" href="#contact"onclick="toggleMenu()">Contact</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="relative min-h-[80vh] flex items-center">
-    <div class="mx-auto max-w-6xl px-6 pt-28 md:pt-32 w-full">
+  <section id="home" class="min-h-[86vh] flex items-center">
+    <div class="mx-auto max-w-7xl w-full px-6 pt-28 md:pt-32">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight text-main">
-            Welcome to <span class="text-[var(--brand)]">Bytes Games</span>
+          <p class="tag flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-[var(--brand)] shadow-[0_0_6px_var(--brand),0_0_12px_var(--brand)]"></span>
+            Roblox Game Development Studio since 2025
+          </p>
+          <h1 class="mt-3 text-4xl md:text-6xl font-extrabold leading-tight">
+            Welcome to
           </h1>
-          <p class="mt-4 text-lg text-muted max-w-xl">We craft high-quality Roblox experiences with style, performance, and polish.</p>
+          <span class="mt-3 text-4xl md:text-6xl font-extrabold leading-tight text-[var(--brand)]">Bytes Games</span>
+          <p class="mt-4 text-lg text-white/80 max-w-xl">
+            Founded on <strong>February 8, 2025</strong> by <strong>Tony Wong</strong>.
+            We craft high-quality Roblox experiences that feel fair, and fun.
+          </p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#games" class="inline-flex items-center gap-2 bg-white text-gray-900 font-semibold px-5 py-3 rounded-2xl hover:bg-gray-100 transition">Explore Our Games</a>
-            <a href="#contact" class="inline-flex items-center gap-2 glass px-5 py-3 rounded-2xl hover:bg-white/10 text-main">Join the Community</a>
+            <a href="#games" class="btn btn-primary">See our Projects</a>
+            <a href="#contact" class="btn btn-ghost">Join the Community</a>
           </div>
         </div>
+
         <div class="relative">
           <div class="glass rounded-3xl overflow-hidden border border-white/10">
-            <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/Untitled-1.png?raw=true" alt="Showcase" class="w-full h-[340px] object-cover"/>
+            <!-- Swap this with a gameplay/banner image when ready -->
+            <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/Untitled-1.png?raw=true" alt="Bytes Games showcase" class="w-full h-[360px] object-cover" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -93,26 +138,48 @@
   </section>
 
   <!-- Games -->
-  <section id="games" class="py-20 relative">
-    <div class="mx-auto max-w-6xl px-6">
+  <section id="games" class="py-20">
+    <div class="mx-auto max-w-7xl px-6">
       <div class="flex items-end justify-between">
-        <h2 class="text-3xl md:text-4xl font-bold text-main">Our Games</h2>
+        <h2 class="text-3xl md:text-4xl font-extrabold">Our Projects</h2>
+        <span class="text-sm text-white/70 glass rounded-xl p-3">Updated regularly as we build in public</span>
       </div>
-      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Game 1 -->
-        <article class="rounded-3xl overflow-hidden group border border-white/10 glass hover:border-white/20 transition game-card">
-          <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/BannerV3.png?raw=true" alt="Untitled Crime Game" class="game-image" />
-          <div class="p-6 game-card-content">
-            <div>
-              <h3 class="text-xl font-semibold text-main">Untitled Crime Game</h3>
-              <p class="text-muted mt-2">Rob stores or chill with friends. Buy cars, guns, houses, join gangs, and discover secrets.</p>
+
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+        <!-- Untitled Crime Game card -->
+        <article class="rounded-3xl overflow-hidden group border border-white/10 glass hover:border-white/20 transition flex flex-col">
+          <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/BannerV3.png?raw=true" alt="Untitled Crime Game banner" class="game-image" loading="lazy" />
+          <div class="p-6 flex flex-col gap-4 flex-1">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold">Untitled Crime Game</h3>
+              <span class="tag">In Development</span>
             </div>
-            <div class="mt-5 flex items-center justify-between">
-              <button disabled class="px-4 py-2 rounded-xl bg-white/10 text-muted cursor-not-allowed">Unavailable</button>
-              <p class="text-xs text-red-400">Work in progress</p>
+            <p class="text-white/80">
+              Rob stores or chill with friends. Buy cars, guns, houses, join gangs, and discover secrets.
+            </p>
+            <div class="mt-auto flex items-center justify-between">
+              <button href="https://www.roblox.com/games/104816444231917/" class="btn btn-ghost cursor-default opacity-70" disabled>Coming soon</button>
+              <a class="text-sm underline decoration-[var(--brand)] underline-offset-4 opacity-90 hover:opacity-100" href="#contact">Follow updates</a>
             </div>
           </div>
         </article>
+        <!-- Template Game card
+        <article class="rounded-3xl overflow-hidden group border border-white/10 glass hover:border-white/20 transition flex flex-col">
+          <img src="https://github.com/BytesGames/BytesGames.github.io/blob/main/BannerV3.png?raw=true" alt="Untitled Crime Game banner" class="game-image" loading="lazy" />
+          <div class="p-6 flex flex-col gap-4 flex-1">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold">Untitled Crime Game</h3>
+              <span class="tag">In Development</span>
+            </div>
+            <p class="text-white/80">
+              Rob stores or chill with friends. Buy cars, guns, houses, join gangs, and discover secrets.
+            </p>
+            <div class="mt-auto flex items-center justify-between">
+              <button href="https://www.roblox.com/games/104816444231917/" class="btn btn-ghost cursor-default opacity-70" disabled>Coming soon</button>
+              <a class="text-sm underline decoration-[var(--brand)] underline-offset-4 opacity-90 hover:opacity-100" href="#contact">Follow updates</a>
+            </div>
+          </div>
+        </article>-->
       </div>
     </div>
   </section>
@@ -120,59 +187,106 @@
   <!-- About -->
   <section id="about" class="py-20 bg-white/5">
     <div class="mx-auto max-w-4xl px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-main">About Us</h2>
-      <p class="mt-6 text-lg text-muted">Established on 8 Feb 2025 by Tony Wong. Bytes Games creates and develops games on Roblox. We focus on quality so players enjoy our games.</p>
+      <h2 class="text-3xl md:text-4xl font-extrabold">About Us</h2>
+      <p class="mt-6 text-lg text-white/80">
+        <strong>Established on 8 Feb 2025</strong> by <strong>TonyWong_0086</strong>. Bytes Games creates and develops games on Roblox.
+        We focus on quality so players enjoy our games.
+      </p>
     </div>
   </section>
 
-  <!-- Staff -->
-  <section id="staff" class="py-20">
-    <div class="mx-auto max-w-6xl px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-main">Our Team</h2>
+  <!-- Team -->
+  <section id="team" class="py-20">
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Our Team</h2>
+
       <div class="mt-10 grid place-items-center">
-        <div class="text-center glass rounded-3xl p-6 w-[min(100%,340px)]">
-          <img src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-83CD3D8BA9E2586F5218550E10DABC25-Png/150/150/AvatarHeadshot/Webp/noFilter" class="w-28 h-28 rounded-full mx-auto mb-4" alt="Tony avatar" />
-          <h3 class="text-xl font-semibold text-main">TonyWong_0086</h3>
-          <p class="text-muted">Founder & Owner</p>
+        <div class="glass rounded-3xl p-6 w-[min(100%,360px)] text-center">
+          <img id="tony-avatar" src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-E180F7BD453126BF20E8C786C1AF773B-Png/512/512/AvatarHeadshot/Webp/noFilter" class="w-28 h-28 rounded-full mx-auto mb-4" alt="Tony Wong Roblox avatar" />
+          <h3 class="text-xl font-semibold">TonyWong_0086</h3>
+          <p class="text-white/75">Founder &amp; Lead Developer</p>
+
+          <!-- Social icons -->
           <div class="mt-4 flex justify-center gap-5">
-            <a href="https://www.youtube.com/@tonywongz0086" target="_blank" title="YouTube" class="opacity-80 hover:opacity-100 transition"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="YouTube" class="w-6 h-6"></a>
-            <a href="https://x.com/TonyWong0086" target="_blank" title="X" class="opacity-80 hover:opacity-100 transition"><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X" class="w-6 h-6"></a>
-            <a href="https://www.roblox.com/users/1864912079/profile" target="_blank" title="Roblox" class="opacity-80 hover:opacity-100 transition"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Roblox_Logo.svg/2048px-Roblox_Logo.svg.png" alt="Roblox" class="w-6 h-6"></a>
+            <a href="https://www.youtube.com/@tonywongz0086" target="_blank" aria-label="YouTube" class="opacity-80 hover:opacity-100 transition">
+              <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="" class="w-6 h-6">
+            </a>
+            <a href="https://x.com/TonyWong0086" target="_blank" aria-label="X" class="opacity-80 hover:opacity-100 transition">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="" class="w-6 h-6">
+            </a>
+            <a href="https://www.roblox.com/users/1864912079/profile" target="_blank" aria-label="Roblox profile" class="opacity-80 hover:opacity-100 transition">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Roblox_Logo.svg/2048px-Roblox_Logo.svg.png" alt="" class="w-6 h-6">
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Contact / Community -->
   <section id="contact" class="py-20">
-    <div class="mx-auto max-w-5xl px-6">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-main">Contact Us</h2>
-      <div class="mt-10 grid md:grid-cols-2 gap-8 items-center">
-        <div class="glass rounded-3xl p-6">
-          <h3 class="text-xl font-semibold text-main">Community</h3>
-          <p class="text-muted mt-2">Join our group and Discord server.</p>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <a href="https://www.roblox.com/My/Groups.aspx?gid=35595940" target="_blank" class="bg-[var(--brand)] text-white px-5 py-3 rounded-2xl font-semibold hover:opacity-90">Join Roblox Group</a>
-            <a href="https://discord.gg/bytesgames" target="_blank" class="bg-[var(--brand)] text-white px-5 py-3 rounded-2xl font-semibold hover:opacity-90">Join Discord</a>
+    <div class="mx-auto max-w-7xl px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-center">Community &amp; Contact</h2>
+
+      <div class="mt-10 grid lg:grid-cols-3 gap-8">
+         <div class="glass rounded-3xl p-6">
+          <h3 class="text-xl font-semibold">Roblox Group</h3>
+          <p class="text-white/80 mt-2">Join our community group on Roblox.</p>
+
+          <div id="group-card" class="mt-4 rounded-2xl border border-white/10 p-4 flex items-center justify-between">
+            <div>
+              <p class="font-semibold">Bytes Games</p>
+            </div>
+            <a href="https://www.roblox.com/My/Groups.aspx?gid=35595940" target="_blank" class="btn btn-primary">Join Group</a>
           </div>
         </div>
+
+        <!-- Discord -->
         <div class="glass rounded-3xl p-6">
-          <h3 class="text-xl font-semibold text-main">Email</h3>
-          <p class="mt-2 text-muted">Reach us at <a href="mailto:bytesgamesrblx@gmail.com" class="underline decoration-[var(--brand)] underline-offset-4">bytesgamesrblx@gmail.com</a></p>
+          <h3 class="text-xl font-semibold">Discord</h3>
+          <p class="text-white/80 mt-2">Hang out, get updates, and share feedback.</p>
+          <a href="https://discord.gg/bytesgames" target="_blank" class="btn btn-primary mt-9 w-full" rel="noopener">Join our Discord</a>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="glass rounded-3xl p-6">
+          <h3 class="text-xl font-semibold">Follow Us</h3>
+          <p class="text-white/80 mt-2">Stay connected with Bytes Games on social media.</p>
+          <div class="mt-6 flex flex-wrap justify-left gap-4">
+            <a href="https://www.youtube.com/@bytesgamesroblox" target="_blank" aria-label="YouTube" class="opacity-80 hover:opacity-100 transition">
+              <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/youtube-app-white-icon.png" alt="YouTube" class="w-7 h-7">
+            </a>
+            <a href="https://x.com/BytesGamesRBLX" target="_blank" aria-label="X (Twitter)" class="opacity-80 hover:opacity-100 transition">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X" class="w-7 h-7">
+            </a>
+            <a href="https://www.roblox.com/groups/35595940" target="_blank" aria-label="Roblox group" class="opacity-80 hover:opacity-100 transition">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Roblox_Logo.svg" alt="Roblox" class="w-7 h-7">
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="py-8 border-t border-white/10">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col md:flex-row items-center justify-between gap-3">
-      <p class="text-muted">© 2025 Bytes Games. All rights reserved.</p>
-      <a href="#home" class="glass px-3 py-2 rounded-xl hover:bg-white/10 text-main">Back to top ↑</a>
+  <div class="mx-auto max-w-7xl px-6 flex flex-col md:flex-row items-center md:justify-between gap-3">
+    <!-- Left side: copyright + credit -->
+    <div class="flex flex-col md:flex-row items-center md:items-center gap-3">
+      <p class="text-white/70">© 2025 Bytes Games. All rights reserved.</p>
+      <div class="glass rounded-xl p-3 text-white/80 text-sm w-fit">
+        Made with ❤️ by <span class="font-semibold text-[var(--brand)]">Bytes Games</span>
+      </div>
     </div>
-  </footer>
 
+    <!-- Right side: back to top -->
+    <a href="#home" class="btn glass btn-ghost">Back to top ↑</a>
+  </div>
+</footer>
+
+  <!-- Scripts -->
   <script>
+    // Mobile menu
     function toggleMenu(){
       const menu = document.getElementById('mobile-menu');
       const open = menu.classList.toggle('menu-open');
